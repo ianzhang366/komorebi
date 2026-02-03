@@ -875,10 +875,12 @@ fn recursive_fibonacci(
         *area
     };
 
-    let half_width = area.right / 2;
-    let half_height = area.bottom / 2;
-    let half_resized_width = resized.right / 2;
-    let half_resized_height = resized.bottom / 2;
+    let ratio: f64 = 0.618;
+
+    let half_width = (area.right as f64 * ratio).round() as i32;
+    let half_height = (area.bottom as f64 * ratio).round() as i32;
+    let half_resized_width = (resized.right as f64 * ratio).round() as i32;
+    let half_resized_height = (resized.bottom as f64 * ratio).round() as i32;
 
     let (main_x, alt_x, alt_y, main_y);
 
